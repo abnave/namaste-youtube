@@ -43,7 +43,7 @@ const Header = () => {
     <div className="grid grid-flow-col p-2 m-1 ">
       <div className="flex flex-wrap col-span-1 py-2">
         <img
-          className="h-6 cursor-pointer mr-3"
+          className="h-6 cursor-pointer ml-4 mr-2"
           alt="menu"
           src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT9y0gIRU_-CR569wHNjMPbik4rrytE2urwbw&usqp=CAU"
           onClick={() => {

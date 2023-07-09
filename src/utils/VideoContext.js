@@ -16,7 +16,8 @@ const VideoProvider = ({ children }) => {
       }else{
         const data = await fetch(YOUTUBE_VIDEOS_URL);
         const json = await data.json();
-        setVideoData(json.items);
+        if(json.error) throw new Error(json.error.message);
+        else setVideoData(json.items);
       }  
       
     } catch (error) {

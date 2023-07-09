@@ -1,7 +1,8 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Sidebar from "./Sidebar";
 import MainContainer from "./MainContainer";
 import { Outlet } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 const Body = () => {
   return (

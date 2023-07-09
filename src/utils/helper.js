@@ -38,3 +38,42 @@ export function generateRandomMessage(length) {
     }
     return result;
 }
+
+export function displayViewCount(viewCount) {
+  if (viewCount) {
+    return viewCount.length > 6 ? viewCount.slice(0, viewCount.length - 6) + "M" : viewCount.length > 4 ? viewCount.slice(0, viewCount.length - 3) + "K" : viewCount.length > 3 ? viewCount.slice(0, viewCount.length - 3) + "K" : viewCount;
+  }
+}
+
+export function displayPublishedBefore(publishedAt) {
+  let publishedDate = new Date(publishedAt);
+  let currentDate = new Date();
+  let timeDifference = currentDate.getTime() - publishedDate.getTime();
+  let daysDifference = Math.floor(timeDifference / (1000 * 3600 * 24));
+  let hoursDifference = Math.floor(timeDifference / (1000 * 3600));
+  let minutesDifference = Math.floor(timeDifference / (1000 * 60));
+  if (daysDifference > 0) {
+    if (daysDifference === 1) {
+      return daysDifference + " day ago";
+    }
+    return daysDifference + " days ago";
+  }
+  if (hoursDifference > 0) {
+    return hoursDifference + " hours ago";
+  }
+  if (minutesDifference > 0) {
+    return minutesDifference + " minutes ago";
+  }
+  if (minutesDifference === 0) {
+    return "just now";
+  }
+}
+
+
+export function cropTitle(title, maxLength) {
+  if (title.length <= maxLength) {
+    return title;
+  } else {
+    return title.substring(0, maxLength) + '...';
+  }
+}
